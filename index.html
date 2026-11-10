@@ -162,8 +162,20 @@ form button:hover {
     transform: scale(1.05);
     background: #128C7E;
 }
+.dark-mode {
+    background: #121212 !important;
+    color: white !important;
+}
 
-@media (max-width: 600px) {
+.dark-mode nav,
+.dark-mode section,
+.dark-mode .skill-card,
+.dark-mode .profile-card,
+.dark-mode form {
+    background: #222 !important;
+    color: white !important;
+}
+    @media (max-width: 600px) {
     nav {
         padding: 15px 5px;
     }
@@ -176,7 +188,6 @@ form button:hover {
     h1 {
         font-size: 28px;
     }
-
     section {
         padding: 40px 15px;
     }
@@ -192,20 +203,29 @@ form button:hover {
         opacity: 0;
         transform: translateY(30px);
     }
-    to {
+        to {
         opacity: 1;
         transform: translateY(0);
     }
-}@keyframes gradientBG {
+}
+
+@keyframes gradientBG {
     0% {
         background-position: 0% 50%;
     }
     50% {
         background-position: 100% 50%;
     }
-    100% {
+        100% {
         background-position: 0% 50%;
-    }@media (max-width: 600px) {
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 15px 5px;
+    }
+
     nav a {
         display: inline-block;
         margin: 8px;
@@ -219,6 +239,7 @@ form button:hover {
     h1 {
         font-size: 28px;
     }
+}
 </style>
 </head>
 
@@ -229,6 +250,7 @@ form button:hover {
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a><a href="#services">Services</a>
     <a href="#contact">Contact</a>
+    <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
 </nav>
 
 <section id="home">
