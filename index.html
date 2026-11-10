@@ -31,7 +31,9 @@
 }
 <style>
 body {
-    background: linear-gradient(135deg, #eaf2ff, #c2d9ff, #ffffff);
+    background: linear-gradient(-45deg, #eaf2ff, #b8d4ff, #d8c5ff, #ffffff);
+background-size: 400% 400%;
+animation: gradientBG 12s ease infinite;
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
@@ -196,7 +198,16 @@ form button:hover {
         opacity: 1;
         transform: translateY(0);
     }
-}
+}@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 </style>
 </head>
 
