@@ -239,10 +239,40 @@ form button:hover {
     h1 {
         font-size: 28px;
     }
+}#loader {
+    position: fixed;
+    inset: 0;
+    background: #121212;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-circle {
+    width: 45px;
+    height: 45px;
+    border: 5px solid #444;
+    border-top: 5px solid #155eef;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 </style>
 </head>
 <body class="dark-mode">
+    <div id="loader">
+    <h1>Areeb's Website</h1>
+    <p>Loading...</p>
+    <div class="loading-circle"></div>
+</div>
 <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -414,5 +444,8 @@ function typeEffect() {
 }
 
 typeEffect();
+    setTimeout(function() {
+    document.getElementById("loader").style.display = "none";
+}, 2000);
 </script>
 </body></html>
