@@ -2,7 +2,33 @@
 <!-- saved from url=(0059)file:///C:/Users/USER/OneDrive/Desktop/MyWebsite/index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>My Website</title>
+.skills-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
 
+.skill-card {
+    background: white;
+    padding: 25px;
+    width: 180px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    background: #155eef;
+    color: white;
+}
+
+.skill-card h3 {
+    font-size: 22px;
+}
 <style>
 body {
     background: linear-gradient(135deg, #eaf2ff, #c2d9ff, #ffffff);
@@ -202,11 +228,27 @@ form button:hover {
 </section>
 <section id="skills">
     <h1>My Skills</h1>
-    <div class="skills-box">
-        <h3>HTML</h3>
-        <h3>CSS</h3>
-        <h3>JavaScript</h3>
-        <h3>Web Design</h3>
+
+    <div class="skills-container">
+        <div class="skill-card">
+            <h3>HTML</h3>
+            <p>Website Structure</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>CSS</h3>
+            <p>Website Design</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>JavaScript</h3>
+            <p>Website Functionality</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Web Design</h3>
+            <p>Creative Websites</p>
+        </div>
     </div>
 </section>
  <section id="contact">
