@@ -264,6 +264,20 @@ form button:hover {
     to {
         transform: rotate(360deg);
     }
+}#topBtn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(90deg, #155eef, #6a11cb);
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
 }
 </style>
 </head>
@@ -448,4 +462,8 @@ typeEffect();
     document.getElementById("loader").style.display = "none";
 }, 2000);
 </script>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    id="topBtn">
+    ⬆ Back to Top
+</button>
 </body></html>
