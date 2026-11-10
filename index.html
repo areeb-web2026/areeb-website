@@ -249,7 +249,7 @@ form button:hover {
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a><a href="#services">Services</a>
     <a href="#contact">Contact</a>
-    <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+   
 </nav>
 
 <section id="home">
@@ -385,8 +385,16 @@ const words = [
     "HTML & CSS Learner",
     "Creative Website Designer"
 ];
-function toggleDarkMode() {
+ function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
+
+    const btn = document.getElementById("darkBtn");
+
+    if (document.body.classList.contains("dark-mode")) {
+        btn.innerHTML = "☀️ Light Mode";
+    } else {
+        btn.innerHTML = "🌙 Dark Mode";
+    }
 }
 let wordIndex = 0;
 let charIndex = 0;
