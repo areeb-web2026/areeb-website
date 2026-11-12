@@ -286,6 +286,7 @@ function showMessage() {
     <h2>🛒 My Cart</h2>
 <p id="cart">Your cart is empty.</p>
 <p id="cartTotal">Total: Rs. 0</p>
+    <button onclick="clearCart()">Clear Cart</button>
 
 <script>
 let cartItems = [];
@@ -303,7 +304,10 @@ function updateCart() {
 
         cartHTML += ' <button onclick="removeItem(' + index + ')">Remove</button><br>';
     });
-
+function clearCart() {
+    cartItems = [];
+    updateCart();
+}
     document.getElementById("cart").innerHTML = cartHTML;
 
     total = 0;
