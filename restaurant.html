@@ -179,7 +179,10 @@ form button {
             <h3>🍔 Burger</h3>
             <p><strong>Price: Rs. 350</strong></p>
             <a href="#" class="whatsapp-btn">Order on WhatsApp</a>
-           <button type="button" onclick="addToCart('Burger', 350)">
+          <label>Quantity:</label>
+<input type="number" id="burgerQty" value="1" min="1">
+
+<button type="button" onclick="addToCart('Burger', 350, document.getElementById('burgerQty').value)">
     Add to Cart
 </button>
             <p>Delicious Fresh Burger</p>
@@ -291,8 +294,20 @@ function showMessage() {
 <script>
 let cartItems = [];
 let total = 0;
-function addToCart(name, price) {
-    cartItems.push({name: name, price: price});
+ function addToCart(name, price, quantity) {
+    quantity = Number(quantity);
+
+    if (quantity < 1 || !Number.isInteger(quantity)) {
+        alert("Please enter a valid quantity!");
+        return;
+    }
+
+    cartItems.push({
+        name: name,
+        price: price,
+        quantity: quantity
+    });
+
     updateCart();
 }
 function updateCart() {
@@ -300,6 +315,8 @@ function updateCart() {
 
     cartItems.forEach(function(item, index) {
         cartHTML += item.name + " - Rs. " + item.price;
+        cartHTML += " × " + item.quantity;
+        cartHTML += " = Rs. " + (item.price * item.quantity);
         cartHTML += ' <button onclick="removeItem(' + index + ')">Remove</button><br>';
     });
 
@@ -309,7 +326,7 @@ function updateCart() {
     total = 0;
 
     cartItems.forEach(function(item) {
-        total += item.price;
+        total += item.price * item.quantity;
     });
 
     document.getElementById("cartTotal").innerHTML =
