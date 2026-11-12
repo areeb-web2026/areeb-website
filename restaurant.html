@@ -352,9 +352,12 @@ function removeItem(index) {
     cartItems.splice(index, 1);
     updateCart();
 }
-
 function clearCart() {
-    function checkout() {
+    cartItems = [];
+    updateCart();
+}
+
+function checkout() {
     let customerName = document.getElementById("customerName").value;
 
     if (customerName.trim() === "") {
