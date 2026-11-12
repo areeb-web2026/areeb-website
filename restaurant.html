@@ -179,6 +179,9 @@ form button {
             <h3>🍔 Burger</h3>
             <p><strong>Price: Rs. 350</strong></p>
             <a href="#" class="whatsapp-btn">Order on WhatsApp</a>
+            <button onclick="addToCart('Burger', 350)">
+    Add to Cart
+</button>
             <p>Delicious Fresh Burger</p>
         </div>
 
@@ -272,6 +275,25 @@ function showMessage() {
     let total = price * quantity;
 
     document.getElementById("total").innerHTML = "Total: Rs. " + total;
+}
+</script>
+    <h2>🛒 My Cart</h2>
+<p id="cart">Your cart is empty.</p>
+<p id="cartTotal">Total: Rs. 0</p>
+
+<script>
+let cartItems = [];
+let total = 0;
+
+function addToCart(name, price) {
+    cartItems.push(name);
+    total = total + price;
+
+    document.getElementById("cart").innerHTML =
+        cartItems.join(", ");
+
+    document.getElementById("cartTotal").innerHTML =
+        "Total: Rs. " + total;
 }
 </script>
 </body>
