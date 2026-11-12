@@ -296,7 +296,16 @@ function showMessage() {
 <p id="cart">Your cart is empty.</p>
 <p id="cartTotal">Total: Rs. 0</p>
     <button onclick="clearCart()">Clear Cart</button>
+    <h3>Checkout</h3>
 
+<label>Your Name:</label>
+<input type="text" id="customerName" placeholder="Enter your name">
+
+<button type="button" onclick="checkout()">
+    Confirm Demo Order
+</button>
+
+<p id="orderMessage"></p>
 <script>
 let cartItems = [];
 let total = 0;
@@ -345,6 +354,23 @@ function removeItem(index) {
 }
 
 function clearCart() {
+    function checkout() {
+    let customerName = document.getElementById("customerName").value;
+
+    if (customerName.trim() === "") {
+        alert("Please enter your name!");
+        return;
+    }
+
+    if (cartItems.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    document.getElementById("orderMessage").innerHTML =
+        "Thank you " + customerName +
+        "! Your demo order total is Rs. " + total;
+}
     cartItems = [];
     updateCart();
 }
