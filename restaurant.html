@@ -247,5 +247,27 @@ function showMessage() {
     alert("JavaScript is working!");
 }
 </script>
+    <h2>Food Price Calculator</h2>
+
+<label>Food Price (Rs.):</label>
+<input type="number" id="price" value="350">
+
+<label>Quantity:</label>
+<input type="number" id="quantity" value="1" min="1">
+
+<button onclick="calculateTotal()">Calculate Total</button>
+
+<h3 id="total">Total: Rs. 350</h3>
+
+<script>
+function calculateTotal() {
+    let price = document.getElementById("price").value;
+    let quantity = document.getElementById("quantity").value;
+
+    let total = price * quantity;
+
+    document.getElementById("total").innerHTML = "Total: Rs. " + total;
+}
+</script>
 </body>
 </html>
