@@ -152,8 +152,18 @@ form button {
 }
     </style>
 </head>
-
 <body>
+    <div style="background:#fff3cd; padding:12px; text-align:center;">
+    This is a demo restaurant website.
+    Orders are for demonstration only.
+</div>
+    <section style="text-align:center; padding:25px;">
+    <h2>Why Choose Our Website?</h2>
+    <p>Easy Online Menu</p>
+    <p>Simple Shopping Cart</p>
+    <p>Easy Checkout Experience</p>
+    <p>Mobile Friendly Design</p>
+</section>
 <header>
     <h1>🍽️ Delicious Restaurant</h1>
     <p>Fresh Food, Great Taste!</p>
@@ -215,21 +225,21 @@ form button {
 </button>
             <p>Fresh Crispy Chicken</p>
         </div>
-    </section>
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have a question or want to know more? Get in touch with us.</p>
 
-    <section id="contact">
-        <h2>Get In Touch</h2>
-<p>Have a question? We'd love to hear from you!</p>
-        <form>
-    <input type="text" placeholder="Your Name" required>
+    <form onsubmit="event.preventDefault(); alert('Thank you! This is a demo form.');">
+        <input type="text" placeholder="Your Name" required>
 
-    <input type="email" placeholder="Your Email" required>
+        <input type="email" placeholder="Your Email" required>
 
-    <textarea placeholder="Your Message" required></textarea>
+        <textarea placeholder="Your Message" required></textarea>
 
-    <button type="submit">Send Message</button>
-</form>
-    </section>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
 <section id="reviews">
     <h2>Customer Reviews</h2>
 
