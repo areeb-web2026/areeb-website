@@ -290,16 +290,35 @@ function showMessage() {
 <script>
 let cartItems = [];
 let total = 0;
-
 function addToCart(name, price) {
-    cartItems.push(name);
-    total = total + price;
+    cartItems.push({name: name, price: price});
+    updateCart();
+}
 
-    document.getElementById("cart").innerHTML =
-        cartItems.join(", ");
+function updateCart() {
+    let cartHTML = "";
+
+    cartItems.forEach(function(item, index) {
+        cartHTML += item.name + " - Rs. " + item.price;
+
+        cartHTML += ' <button onclick="removeItem(' + index + ')">Remove</button><br>';
+    });
+
+    document.getElementById("cart").innerHTML = cartHTML;
+
+    total = 0;
+
+    cartItems.forEach(function(item) {
+        total += item.price;
+    });
 
     document.getElementById("cartTotal").innerHTML =
         "Total: Rs. " + total;
+}
+
+function removeItem(index) {
+    cartItems.splice(index, 1);
+    updateCart();
 }
 </script>
 </body>
