@@ -375,10 +375,10 @@ function checkout() {
         alert("Your cart is empty!");
         return;
     }
-
-    document.getElementById("orderMessage").innerHTML =
-        "Thank you " + customerName +
-        "! Your demo order total is Rs. " + total;
+document.getElementById("orderMessage").innerHTML =
+    "Thank you " + customerName +
+    "! Your address is: " + customerAddress +
+    ". Your demo order total is Rs. " + total;
 }
 </script>
 </body>
