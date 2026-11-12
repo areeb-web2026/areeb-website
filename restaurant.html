@@ -300,7 +300,8 @@ function showMessage() {
 
 <label>Your Name:</label>
 <input type="text" id="customerName" placeholder="Enter your name">
-
+<label>Address:</label>
+<input type="text" id="customerAddress" placeholder="Enter delivery address">
 <button type="button" onclick="checkout()">
     Confirm Demo Order
 </button>
@@ -356,12 +357,17 @@ function clearCart() {
     cartItems = [];
     updateCart();
 }
-
 function checkout() {
     let customerName = document.getElementById("customerName").value;
+    let customerAddress = document.getElementById("customerAddress").value;
 
     if (customerName.trim() === "") {
         alert("Please enter your name!");
+        return;
+    }
+
+    if (customerAddress.trim() === "") {
+        alert("Please enter your address!");
         return;
     }
 
