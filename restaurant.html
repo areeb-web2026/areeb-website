@@ -207,13 +207,7 @@ textarea:focus {
     This is a demo restaurant website.
     Orders are for demonstration only.
 </div>
-    <section style="text-align:center; padding:25px;">
-    <h2>Why Choose Our Website?</h2>
-    <p>Easy Online Menu</p>
-    <p>Simple Shopping Cart</p>
-    <p>Easy Checkout Experience</p>
-    <p>Mobile Friendly Design</p>
-</section>
+   
 <header>
     <h1>🍽️ Delicious Restaurant</h1>
     <p>Fresh Food, Great Taste!</p>
@@ -221,7 +215,13 @@ textarea:focus {
 
     <a href="#menu" class="order-btn">Explore Our Menu</a>
 </header>
-
+  <section style="text-align:center; padding:25px;">
+    <h2>Why Choose Our Website?</h2>
+    <p>Easy Online Menu</p>
+    <p>Simple Shopping Cart</p>
+    <p>Easy Checkout Experience</p>
+    <p>Mobile Friendly Design</p>
+</section>
 <nav>
     <a href="#home">Home</a>
     <a href="#menu">Our Menu</a>
@@ -463,10 +463,11 @@ document.getElementById("orderMessage").innerHTML =
     "Thank you " + customerName +
     "!<br>Address: " + customerAddress +
     "<br><br>Order Summary:" + orderDetails +
-    "<br><br>Total Bill: Rs. " + total;
-}
+        "<br><br>Total Bill: Rs. " + total;
+
     cartItems = [];
-updateCart();
+    updateCart();
+}
 </script>
 </body>
 </html>
