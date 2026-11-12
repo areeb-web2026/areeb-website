@@ -193,7 +193,10 @@ form button {
             <h3>🍕 Pizza</h3>
             <p><strong>Price: Rs. 800</strong></p>
             <a href="#" class="whatsapp-btn">Order on WhatsApp</a>
-            <button type="button" onclick="addToCart('Pizza', 800)">
+            <label>Quantity:</label>
+<input type="number" id="pizzaQty" value="1" min="1">
+
+<button type="button" onclick="addToCart('Pizza', 800, document.getElementById('pizzaQty').value)">
     Add to Cart
 </button>
             <p>Cheesy Special Pizza</p>
@@ -204,7 +207,10 @@ form button {
             <h3>🍗 Chicken</h3>
             <p><strong>Price: Rs. 450</strong></p>
             <a href="#" class="whatsapp-btn">Order on WhatsApp</a>
-            <button type="button" onclick="addToCart('Chicken', 450)">
+            <label>Quantity:</label>
+<input type="number" id="chickenQty" value="1" min="1">
+
+<button type="button" onclick="addToCart('Chicken', 450, document.getElementById('chickenQty').value)">
     Add to Cart
 </button>
             <p>Fresh Crispy Chicken</p>
