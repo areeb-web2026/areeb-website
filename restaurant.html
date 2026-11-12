@@ -375,10 +375,18 @@ function checkout() {
         alert("Your cart is empty!");
         return;
     }
+let orderDetails = "";
+
+cartItems.forEach(function(item) {
+    orderDetails += "<br>" + item.name +
+        " × " + item.quantity +
+        " = Rs. " + (item.price * item.quantity);
+});
 document.getElementById("orderMessage").innerHTML =
     "Thank you " + customerName +
-    "! Your address is: " + customerAddress +
-    ". Your demo order total is Rs. " + total;
+    "!<br>Address: " + customerAddress +
+    "<br><br>Order Summary:" + orderDetails +
+    "<br><br>Total Bill: Rs. " + total;
 }
 </script>
 </body>
