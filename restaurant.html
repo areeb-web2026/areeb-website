@@ -150,6 +150,56 @@ form button {
     border-radius: 8px;
     cursor: pointer;
 }
+  
+/* Professional improvements */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.menu-card {
+    vertical-align: top;
+    min-height: 340px;
+}
+
+.menu-card button {
+    background: #a83232;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.menu-card button:hover {
+    background: #7d2020;
+}
+
+form button:hover {
+    background: #7d2020;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid #a83232;
+    border-color: #a83232;
+}
+@media (max-width: 600px) {
+    .menu-card {
+        width: 90%;
+        max-width: 320px;
+        box-sizing: border-box;
+    }
+
+    form {
+        width: 95%;
+    }
+
+    nav a {
+        padding: 5px;
+    }
+}      
     </style>
 </head>
 <body>
