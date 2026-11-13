@@ -216,6 +216,35 @@ body.dark-mode input::placeholder,
 body.dark-mode textarea::placeholder{
     color:#ccc;
 }
+  .image-slider{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+}
+
+.image-slider img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.slider-btn{
+    background:#d4af37;
+    color:#10243a;
+    border:none;
+    padding:12px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+    flex-shrink:0;
+}
+
+#imageCounter{
+    margin:10px 0;
+    color:#777;
+}
 </style>
 </head>
 
@@ -387,8 +416,15 @@ class="btn">
 <div class="modal" id="propertyModal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
+<div class="image-slider">
+    <button class="slider-btn" onclick="previousImage()">❮</button>
 
-        <img id="modalImage" src="" alt="Property Image" style="width:100%;height:200px;object-fit:cover;border-radius:10px;margin-bottom:15px;">
+    <img id="modalImage" src="" alt="Property Image">
+
+    <button class="slider-btn" onclick="nextImage()">❯</button>
+</div>
+
+<p id="imageCounter">1 / 3</p>
 <h2 id="modalTitle">Property Details</h2>
         <p id="modalLocation"></p>
         <p id="modalPrice"></p>
@@ -442,9 +478,18 @@ if(matchLocation && matchType) count++;
 document.getElementById("searchResult").innerText=
 count ? count+" sample properties found." : "No matching sample properties found.";
 }
-function showDetails(title, location, price, rooms, image){
+ function showDetails(title, location, price, rooms, image){
+
+    propertyImages = [
+        image,
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=80"
+    ];
+
+    currentImage = 0;
+    showImage();
+
     document.getElementById("modalTitle").innerText = title;
-    document.getElementById("modalImage").src = image;
     document.getElementById("modalLocation").innerText = location;
     document.getElementById("modalPrice").innerText = price;
     document.getElementById("modalRooms").innerText = rooms;
