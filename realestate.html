@@ -129,6 +129,27 @@ nav a{display:inline-block;margin:7px}
         margin:8px;
     }
 }
+  #topBtn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:48px;
+    height:48px;
+    background:#d4af37;
+    color:#081b33;
+    border:none;
+    border-radius:50%;
+    font-size:25px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 4px 12px #0003;
+    z-index:999;
+}
+
+#topBtn:hover{
+    background:#f1c36a;
+    transform:translateY(-3px);
+}
 </style>
 </head>
 
@@ -376,7 +397,16 @@ document.getElementById("formResult").innerText=
 "Thank you! This is a demo form. Your inquiry has not been sent.";
 event.target.reset();
 }
+  // Back to Top Button
+function scrollToTop(){
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 </script>
-
+<button onclick="scrollToTop()" id="topBtn" title="Go to Top">
+    ↑
+</button>
 </body>
 </html>
