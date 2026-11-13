@@ -1,1 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Restaurant</title>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        nav {
+            background: #e74c3c;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #7b241c, #e67e22);
+            color: white;
+            text-align: center;
+            padding: 75px 20px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .menu-card {
+            background: white;
+            width: 260px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #ddd;
+        }
+
+        .food-icon {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .menu-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #e74c3c;
+            font-weight: bold;
+            margin: 12px;
+        }
+
+        button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #b93225;
+        }
+
+        .cart-box, .contact-box {
+            background: white;
+            max-width: 550px;
+            margin: 25px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #ddd;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        .review {
+            background: white;
+            max-width: 500px;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        @media(max-width: 600px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+
+            .menu-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Delicious Restaurant</h1>
+    <p>Fresh Food, Great Taste!</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#cart">My Cart</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="home">
+    <h1>Welcome to Delicious Restaurant</h1>
+    <p>Enjoy delicious food with your family and friends.</p>
+    <br>
+    <a href="#menu">
+        <button>Explore Our Menu</button>
+    </a>
+</section>
+
+<section class="section" id="menu">
+    <h2>Our Special Menu</h2>
+    <p>Choose your favourite food</p>
+
+    <div class="menu-container">
+
+        <div class="menu-card">
+            <div class="food-icon">🍔</div>
+            <h3>Special Burger</h3>
+            <p>Fresh and tasty burger.</p>
+            <p class="price">Rs. 450</p>
+            <button onclick="addToCart('Special Burger', 450)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="menu-card">
+            <div class="food-icon">🍕</div>
+            <h3>Cheese Pizza</h3>
+            <p>Delicious cheesy pizza.</p>
+            <p class="price">Rs. 900</p>
+            <button onclick="addToCart('Cheese Pizza', 900)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="menu-card">
+            <div class="food-icon">🍗</div>
+            <h3>Fried Chicken</h3>
+            <p>Crispy and fresh chicken.</p>
+            <p class="price">Rs. 600</p>
+            <button onclick="addToCart('Fried Chicken', 600)">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="cart">
+    <h2>My Shopping Cart</h2>
+
+    <div class="cart-box">
+        <div id="cartItems">
+            Your cart is empty.
+        </div>
+
+        <h3 id="total">Total: Rs. 0</h3>
+
+        <button onclick="checkout()">Checkout</button>
+        <button onclick="clearCart()">Clear Cart</button>
+    </div>
+</section>
+
+<section class="section" id="reviews">
+    <h2>Customer Reviews</h2>
+
+    <div class="review">
+        <h3>Ali Khan</h3>
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>Great food and excellent service!</p>
+    </div>
+
+    <div class="review">
+        <h3>Ahmed</h3>
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>Very delicious food. Highly recommended!</p>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <h2>Contact Us</h2>
+
+    <div class="contact-box">
+        <form onsubmit="sendMessage(event)">
+            <input type="text" id="name"
+                   placeholder="Your Name" required>
+
+            <input type="email" id="email"
+                   placeholder="Your Email" required>
+
+            <textarea id="message"
+                      placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <p id="formResult"></p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Delicious Restaurant. All Rights Reserved.</p>
+</footer>
+
+<script>
+    let cart = [];
+
+    function addToCart(name, price) {
+        cart.push({ name: name, price: price });
+        updateCart();
+        alert(name + " added to cart!");
+    }
+
+    function updateCart() {
+        const cartItems = document.getElementById("cartItems");
+        const totalElement = document.getElementById("total");
+
+        if (cart.length === 0) {
+            cartItems.innerHTML = "Your cart is empty.";
+            totalElement.innerHTML = "Total: Rs. 0";
+            return;
+        }
+
+        let total = 0;
+        let html = "";
+
+        cart.forEach(function(item, index) {
+            total += item.price;
+
+            html += `
+                <p>
+                    ${item.name} - Rs. ${item.price}
+                    <button onclick="removeItem(${index})">
+                        Remove
+                    </button>
+                </p>
+            `;
+        });
+
+        cartItems.innerHTML = html;
+        totalElement.innerHTML = "Total: Rs. " + total;
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        updateCart();
+    }
+
+    function clearCart() {
+        cart = [];
+        updateCart();
+    }
+
+    function checkout() {
+        if (cart.length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
+
+        alert("Demo checkout successful! This is not a real order.");
+        clearCart();
+    }
+
+    function sendMessage(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+
+        document.getElementById("formResult").innerHTML =
+            "Thank you, " + name + "! This is a demo form.";
+
+        event.target.reset();
+    }
+</script>
+
+</body>
+</html>
