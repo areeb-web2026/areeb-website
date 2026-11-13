@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Estate | Find Your Dream Property</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{color:#222;background:#f8f9fb}
+header{background:#10243a;color:white;padding:22px 8%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.logo{font-size:26px;font-weight:bold;color:#e8b75a}
+nav a{color:white;text-decoration:none;margin:10px;font-weight:bold}
+nav a:hover{color:#e8b75a}
+.hero{min-height:490px;background:linear-gradient(90deg,#10243ae8,#10243a50),url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=85') center/cover;display:flex;align-items:center;padding:60px 9%;color:white}
+.hero-content{max-width:650px}
+.hero h1{font-size:48px;margin-bottom:20px}
+.hero p{font-size:18px;line-height:1.7}
+.btn{display:inline-block;background:#d9a441;color:#10243a;padding:13px 24px;border:0;border-radius:5px;text-decoration:none;font-weight:bold;cursor:pointer;margin-top:18px}
+.btn:hover{background:#f1c36a}
+.section{padding:65px 8%;text-align:center}
+.section h2{font-size:34px;margin-bottom:12px;color:#10243a}
+.subtitle{color:#777;margin-bottom:30px}
+.search-box{background:white;padding:25px;max-width:900px;margin:-35px auto 25px;position:relative;border-radius:10px;box-shadow:0 5px 20px #0002;display:flex;gap:12px;flex-wrap:wrap}
+.search-box input,.search-box select{flex:1;min-width:160px;padding:13px;border:1px solid #ddd;border-radius:5px}
+.properties{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;margin-top:30px}
+.property-card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 5px 20px #00000012;text-align:left}
+.property-card img{width:100%;height:210px;object-fit:cover}
+.property-info{padding:20px}
+.property-info h3{margin-bottom:10px;color:#10243a;font-size:21px}
+.property-info p{color:#777;margin:8px 0;line-height:1.5}
+.price{font-size:21px;font-weight:bold;color:#c38c28;margin-top:12px}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:30px}
+.feature{background:white;padding:28px;border-radius:10px;box-shadow:0 4px 15px #00000010}
+.feature h3{color:#c38c28;margin-bottom:12px}
+.contact-box{max-width:650px;margin:25px auto;background:white;padding:28px;border-radius:12px;box-shadow:0 5px 20px #00000012}
+.contact-box input,.contact-box textarea{width:100%;padding:13px;margin:9px 0;border:1px solid #ddd;border-radius:5px}
+.contact-box textarea{height:120px}
+footer{background:#10243a;color:white;text-align:center;padding:30px}
+footer p{margin:8px}
+@media(max-width:650px){
+header{justify-content:center;text-align:center}
+nav a{display:inline-block;margin:7px}
+.hero h1{font-size:35px}
+.section{padding:45px 5%}
+.search-box{margin:15px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🏡 PRIME ESTATE</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#properties">Properties</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-content">
+<h1>Find Your Dream Property With Us</h1>
+<p>Discover beautiful homes, modern apartments and premium properties. Let us help you find a place you'll love.</p>
+<a href="#properties" class="btn">Explore Properties</a>
+</div>
+</section>
+
+<div class="search-box">
+<input type="text" id="searchLocation" placeholder="Search location">
+<select id="propertyType">
+<option value="">All Property Types</option>
+<option value="House">House</option>
+<option value="Apartment">Apartment</option>
+<option value="Villa">Villa</option>
+</select>
+<button class="btn" onclick="searchProperties()">Search Property</button>
+</div>
+
+<section class="section" id="about">
+<h2>About Prime Estate</h2>
+<p class="subtitle">Your trusted property discovery partner</p>
+<p>We make property discovery simple and convenient. Explore property listings, compare options and discover places that match your needs.</p>
+
+<div class="features">
+<div class="feature">
+<h3>🏠 Dream Homes</h3>
+<p>Explore beautiful homes for different lifestyles.</p>
+</div>
+<div class="feature">
+<h3>🌍 Great Locations</h3>
+<p>Discover properties in attractive locations.</p>
+</div>
+<div class="feature">
+<h3>🤝 Helpful Support</h3>
+<p>Get guidance while exploring your property options.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="properties">
+<h2>Featured Properties</h2>
+<p class="subtitle">Explore our sample property listings</p>
+
+<div class="properties" id="propertyList">
+
+<div class="property-card" data-type="House" data-location="Karachi">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Modern house">
+<div class="property-info">
+<h3>Modern Family House</h3>
+<p>📍 Karachi, Pakistan</p>
+<p>🛏 4 Bedrooms | 🛁 3 Bathrooms</p>
+<div class="price">$180,000</div>
+<button class="btn" onclick="inquire('Modern Family House')">View Details</button>
+</div>
+</div>
+
+<div class="property-card" data-type="Apartment" data-location="Dubai">
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Luxury apartment">
+<div class="property-info">
+<h3>Luxury Apartment</h3>
+<p>📍 Dubai, UAE</p>
+<p>🛏 2 Bedrooms | 🛁 2 Bathrooms</p>
+<div class="price">$250,000</div>
+<button class="btn" onclick="inquire('Luxury Apartment')">View Details</button>
+</div>
+</div>
+
+<div class="property-card" data-type="Villa" data-location="London">
+<img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Luxury villa">
+<div class="property-info">
+<h3>Premium Luxury Villa</h3>
+<p>📍 London, UK</p>
+<p>🛏 5 Bedrooms | 🛁 4 Bathrooms</p>
+<div class="price">$650,000</div>
+<button class="btn" onclick="inquire('Premium Luxury Villa')">View Details</button>
+</div>
+</div>
+
+</div>
+<p id="searchResult"></p>
+</section>
+
+<section class="section" id="services">
+<h2>Our Services</h2>
+<p class="subtitle">Helping you explore property opportunities</p>
+<div class="features">
+<div class="feature">
+<h3>Property Search</h3>
+<p>Explore property options based on your preferences.</p>
+</div>
+<div class="feature">
+<h3>Property Guidance</h3>
+<p>Get helpful information about listed properties.</p>
+</div>
+<div class="feature">
+<h3>Property Consultation</h3>
+<p>Discuss your property interests with our team.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<h2>Contact Us</h2>
+<p class="subtitle">Interested in a property? Send us a message.</p>
+
+<div class="contact-box">
+<form onsubmit="sendMessage(event)">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Your Email" required>
+<input type="text" id="interest" placeholder="Property Interested In">
+<textarea id="message" placeholder="Your Message" required></textarea>
+<button class="btn" type="submit">Send Inquiry</button>
+</form>
+<p id="formResult"></p>
+</div>
+</section>
+
+<footer>
+<h3>🏡 PRIME ESTATE</h3>
+<p>Find Your Dream Property With Us</p>
+<p>© 2026 Prime Estate. All Rights Reserved.</p>
+</footer>
+
+<script>
+function searchProperties(){
+const location=document.getElementById("searchLocation").value.toLowerCase();
+const type=document.getElementById("propertyType").value;
+const cards=document.querySelectorAll(".property-card");
+let count=0;
+
+cards.forEach(card=>{
+const cardLocation=card.dataset.location.toLowerCase();
+const cardType=card.dataset.type;
+const matchLocation=!location || cardLocation.includes(location);
+const matchType=!type || cardType===type;
+
+card.style.display=matchLocation && matchType ? "block" : "none";
+
+if(matchLocation && matchType) count++;
+});
+
+document.getElementById("searchResult").innerText=
+count ? count+" sample properties found." : "No matching sample properties found.";
+}
+
+function inquire(property){
+document.getElementById("interest").value=property;
+document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+}
+
+function sendMessage(event){
+event.preventDefault();
+document.getElementById("formResult").innerText=
+"Thank you! This is a demo form. Your inquiry has not been sent.";
+event.target.reset();
+}
+</script>
+
+</body>
+</html>
