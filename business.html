@@ -188,11 +188,18 @@ footer {
     <p>© 2026 Smart Business Solutions</p>
     <p>Website Demo Project</p>
 </footer>
-
 <script>
     function showMessage() {
         alert("Thank you for visiting our demo website!");
     }
+
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        alert("Thank you! Your message has been submitted successfully.");
+
+        this.reset();
+    });
 </script>
 
 </body>
