@@ -170,7 +170,7 @@ footer {
     </a>
     <h3>Send Us a Message</h3>
 
-<form>
+<form onsubmit="sendEmail(event)">
     <input type="text" placeholder="Your Name" required>
     <br><br>
 
@@ -193,14 +193,25 @@ footer {
         alert("Thank you for visiting our demo website!");
     }
 
-    document.querySelector("form").addEventListener("submit", function(event) {
+    function sendEmail(event) {
         event.preventDefault();
 
-        alert("Thank you! Your message has been submitted successfully.");
+        const name = document.querySelector('input[type="text"]').value;
+        const email = document.querySelector('input[type="email"]').value;
+        const message = document.querySelector('textarea').value;
 
-        this.reset();
-    });
+        const subject = encodeURIComponent("Website Contact Message");
+
+        const body = encodeURIComponent(
+            "Name: " + name +
+            "\nEmail: " + email +
+            "\nMessage: " + message
+        );
+
+        window.location.href =
+            "https://mail.google.com/mail/?view=cm&fs=1&su=" +
+            subject + "&body=" + body;
+    }
 </script>
-
 </body>
 </html>
