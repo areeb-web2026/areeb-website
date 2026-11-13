@@ -12,26 +12,39 @@
             background: #f4f7fb;
             color: #333;
         }
+header {
+    background: linear-gradient(135deg, #123b85, #155eef);
+    color: white;
+    text-align: center;
+    padding: 90px 20px;
+}
 
-        header {
-            background: #155eef;
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
+header h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+header p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
 
         nav {
             background: #123b85;
             padding: 15px;
             text-align: center;
         }
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 12px;
-        }
-
+nav a:hover {
+    color: #ffd700;
+}
         section {
             padding: 40px 20px;
             text-align: center;
@@ -43,44 +56,59 @@
             flex-wrap: wrap;
             gap: 20px;
         }
+.card {
+    background: white;
+    padding: 30px;
+    width: 220px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
 
-        .card {
-            background: white;
-            padding: 25px;
-            width: 220px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px #ddd;
-        }
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
 
-        .card h3 {
-            color: #155eef;
-        }
-
+.card h3 {
+    color: #155eef;
+    font-size: 21px;
+}
         button {
-            background: #155eef;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+    background: #155eef;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        button:hover {
-            background: #123b85;
-        }
+button:hover {
+    background: #123b85;
+    transform: translateY(-3px);
+}
+footer {
+    background: #123b85;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+@media (max-width: 600px) {
+    nav a {
+        display: inline-block;
+        margin: 8px;
+    }
 
-        footer {
-            background: #123b85;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+    header h1 {
+        font-size: 30px;
+    }
 
-        @media (max-width: 600px) {
-            .card {
-                width: 90%;
-            }
-        }
+    .card {
+        width: 90%;
+    }
+}
     </style>
 </head>
 
