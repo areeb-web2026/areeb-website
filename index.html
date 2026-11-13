@@ -847,21 +847,22 @@ const words = [
 }
 let wordIndex = 0;
 let charIndex = 0;
-
 function typeEffect() {
     const typing = document.getElementById("typing");
 
     typing.textContent = words[wordIndex].substring(0, charIndex);
-    charIndex++;
 
-    if (charIndex > words[wordIndex].length) {
-        charIndex = 0;
-        wordIndex = (wordIndex + 1) % words.length;
+    if (charIndex < words[wordIndex].length) {
+        charIndex++;
+        setTimeout(typeEffect, 100);
+    } else {
+        setTimeout(function() {
+            charIndex = 0;
+            wordIndex = (wordIndex + 1) % words.length;
+            typeEffect();
+        }, 1000);
     }
-
-    setTimeout(typeEffect, 150);
 }
-
 typeEffect();
     setTimeout(function() {
     document.getElementById("loader").style.display = "none";
