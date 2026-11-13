@@ -46,6 +46,45 @@ nav a{display:inline-block;margin:7px}
 .section{padding:45px 5%}
 .search-box{margin:15px}
 }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #10243a;
+}
+
+.modal-content h2 {
+    color: #10243a;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    margin: 12px 0;
+    color: #555;
+}
 </style>
 </head>
 
@@ -115,7 +154,7 @@ nav a{display:inline-block;margin:7px}
 <p>📍 Karachi, Pakistan</p>
 <p>🛏 4 Bedrooms | 🛁 3 Bathrooms</p>
 <div class="price">$180,000</div>
-<button class="btn" onclick="inquire('Modern Family House')">View Details</button>
+<button class="btn" onclick="showDetails('Modern Family House','Karachi, Pakistan','$180,000','4 Bedrooms | 3 Bathrooms')">View Details</button>
 </div>
 </div>
 
@@ -126,7 +165,7 @@ nav a{display:inline-block;margin:7px}
 <p>📍 Dubai, UAE</p>
 <p>🛏 2 Bedrooms | 🛁 2 Bathrooms</p>
 <div class="price">$250,000</div>
-<button class="btn" onclick="inquire('Luxury Apartment')">View Details</button>
+<button class="btn" onclick="showDetails('Luxury Apartment','Dubai, UAE','$250,000','2 Bedrooms | 2 Bathrooms')">View Details</button>
 </div>
 </div>
 
@@ -137,7 +176,7 @@ nav a{display:inline-block;margin:7px}
 <p>📍 London, UK</p>
 <p>🛏 5 Bedrooms | 🛁 4 Bathrooms</p>
 <div class="price">$650,000</div>
-<button class="btn" onclick="inquire('Premium Luxury Villa')">View Details</button>
+<button class="btn" onclick="showDetails('Premium Luxury Villa','London, UK','$650,000','5 Bedrooms | 4 Bathrooms')">View Details</button>
 </div>
 </div>
 
@@ -179,7 +218,19 @@ nav a{display:inline-block;margin:7px}
 <p id="formResult"></p>
 </div>
 </section>
+<div class="modal" id="propertyModal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
 
+        <h2 id="modalTitle">Property Details</h2>
+
+        <p id="modalLocation"></p>
+        <p id="modalPrice"></p>
+        <p id="modalRooms"></p>
+
+        <button class="btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
 <footer>
 <h3>🏡 PRIME ESTATE</h3>
 <p>Find Your Dream Property With Us</p>
@@ -207,7 +258,18 @@ if(matchLocation && matchType) count++;
 document.getElementById("searchResult").innerText=
 count ? count+" sample properties found." : "No matching sample properties found.";
 }
+function showDetails(title, location, price, rooms){
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalLocation").innerText = location;
+    document.getElementById("modalPrice").innerText = price;
+    document.getElementById("modalRooms").innerText = rooms;
 
+    document.getElementById("propertyModal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("propertyModal").style.display = "none";
+}
 function inquire(property){
 document.getElementById("interest").value=property;
 document.getElementById("contact").scrollIntoView({behavior:"smooth"});
