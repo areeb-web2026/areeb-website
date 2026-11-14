@@ -246,6 +246,7 @@ body.dark-mode textarea::placeholder{
     color:#777;
 }
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -565,12 +566,34 @@ function inquire(property){
     document.getElementById("interest").value = property;
     document.getElementById("contact").scrollIntoView({behavior:"smooth"});
 }
+async function sendMessage(event){
+    event.preventDefault();
 
-function sendMessage(event){
-event.preventDefault();
-document.getElementById("formResult").innerText=
-"Thank you! This is a demo form. Your inquiry has not been sent.";
-event.target.reset();
+    const params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        interest: document.getElementById("interest").value,
+        message: document.getElementById("message").value
+    };
+
+    const result = document.getElementById("formResult");
+    result.innerText = "Sending...";
+
+    try {
+        await emailjs.send(
+            "service_gjqwkox",
+            "template_mtdly1b",
+            params,
+            { publicKey: "V-3yrobSGINd7K-NA" }
+        );
+
+        result.innerText = "Test message sent successfully!";
+        event.target.reset();
+
+    } catch (error) {
+        console.error(error);
+        result.innerText = "Message could not be sent. Please try again.";
+    }
 }
   // Back to Top Button
 function scrollToTop(){
