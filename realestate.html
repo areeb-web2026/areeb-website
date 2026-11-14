@@ -478,6 +478,28 @@ if(matchLocation && matchType) count++;
 document.getElementById("searchResult").innerText=
 count ? count+" sample properties found." : "No matching sample properties found.";
 }
+  let propertyImages = [];
+let currentImage = 0;
+
+function showImage(){
+    document.getElementById("modalImage").src =
+        propertyImages[currentImage];
+
+    document.getElementById("imageCounter").innerText =
+        (currentImage + 1) + " / " + propertyImages.length;
+}
+
+function nextImage(){
+    currentImage =
+        (currentImage + 1) % propertyImages.length;
+    showImage();
+}
+
+function previousImage(){
+    currentImage =
+        (currentImage - 1 + propertyImages.length) % propertyImages.length;
+    showImage();
+}
  function showDetails(title, location, price, rooms, image){
 
     propertyImages = [
