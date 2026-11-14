@@ -413,7 +413,7 @@ class="btn">
 <p id="formResult"></p>
 </div>
 </section>
-<div class="modal" id="propertyModal">
+<div class="modal" id="propertyModal" onclick="closeOutside(event)">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
 <div class="image-slider">
@@ -518,13 +518,19 @@ function previousImage(){
 
     document.getElementById("propertyModal").style.display = "flex";
 }
-
 function closeModal(){
     document.getElementById("propertyModal").style.display = "none";
 }
+
+function closeOutside(event){
+    if(event.target.id === "propertyModal"){
+        closeModal();
+    }
+}
+
 function inquire(property){
-document.getElementById("interest").value=property;
-document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+    document.getElementById("interest").value = property;
+    document.getElementById("contact").scrollIntoView({behavior:"smooth"});
 }
 
 function sendMessage(event){
