@@ -322,7 +322,8 @@ body.dark-mode textarea::placeholder{
 <p>🛏 4 Bedrooms | 🛁 3 Bathrooms</p>
 <div class="price">$180,000</div>
   <button class="btn" onclick="showDetails('Modern Family House','Karachi, Pakistan','$180,000','4 Bedrooms | 3 Bathrooms','https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80')">View Details</button>
- </div>
+<button class="btn favorite-btn" onclick="toggleFavorite(this)">❤️ Favorite</button>
+</div>
 </div>
 
 <div class="property-card" data-type="Apartment" data-location="Dubai">
@@ -333,7 +334,8 @@ body.dark-mode textarea::placeholder{
 <p>🛏 2 Bedrooms | 🛁 2 Bathrooms</p>
 <div class="price">$250,000</div>
 <button class="btn" onclick="showDetails('Luxury Apartment','Dubai, UAE','$250,000','2 Bedrooms | 2 Bathrooms','https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80')">View Details</button>
-</div>
+<button class="btn favorite-btn" onclick="toggleFavorite(this)">❤️ Favorite</button>
+</div> 
 </div>
 
 <div class="property-card" data-type="Villa" data-location="London">
@@ -344,6 +346,7 @@ body.dark-mode textarea::placeholder{
 <p>🛏 5 Bedrooms | 🛁 4 Bathrooms</p>
 <div class="price">$650,000</div>
 <button class="btn" onclick="showDetails('Premium Luxury Villa','London, UK','$650,000','5 Bedrooms | 4 Bathrooms','https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80')">View Details</button>
+ <button class="btn favorite-btn" onclick="toggleFavorite(this)">❤️ Favorite</button>
 </div>
 </div>
 
@@ -479,6 +482,7 @@ document.getElementById("searchResult").innerText=
 count ? count+" sample properties found." : "No matching sample properties found.";
 }
   let propertyImages = [];
+  let favoriteProperties = JSON.parse(localStorage.getItem("primeEstateFavorites")) || [];
 let currentImage = 0;
 
 function showImage(){
@@ -500,6 +504,31 @@ function previousImage(){
         (currentImage - 1 + propertyImages.length) % propertyImages.length;
     showImage();
 }
+ function toggleFavorite(button){
+    const card = button.closest(".property-card");
+    const propertyName = card.querySelector("h3").innerText;
+
+    if(favoriteProperties.includes(propertyName)){
+        favoriteProperties = favoriteProperties.filter(name => name !== propertyName);
+        button.innerText = "❤️ Favorite";
+        button.style.background = "";
+    } else {
+        favoriteProperties.push(propertyName);
+        button.innerText = "❤️ Remove Favorite";
+        button.style.background = "#b8860b";
+    }
+
+    localStorage.setItem("primeEstateFavorites", JSON.stringify(favoriteProperties));
+}
+  document.querySelectorAll(".property-card").forEach(card => {
+    const name = card.querySelector("h3").innerText;
+    const button = card.querySelector(".favorite-btn");
+
+    if(favoriteProperties.includes(name)){
+        button.innerText = "❤️ Remove Favorite";
+        button.style.background = "#b8860b";
+    }
+});
  function showDetails(title, location, price, rooms, image){
 
     propertyImages = [
