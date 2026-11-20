@@ -49,11 +49,19 @@
         <h2>About Us</h2>
         <p>We focus on quality, creativity and customer satisfaction.</p>
     </section>
+ <section class="services" id="contact">
+    <h2>Contact Us</h2>
 
-    <section class="services" id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: hello@example.com</p>
-    </section>
+    <form class="contact-form" onsubmit="sendMessage(event)">
+        <input type="text" placeholder="Your Name" required>
+
+        <input type="email" placeholder="Your Email" required>
+
+        <textarea placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
 
     <footer>
         <p>Copyright &copy; 2026 Areeb Business. All rights reserved.</p>
