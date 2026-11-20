@@ -13,4 +13,6 @@ function sendMessage(event) {
     alert("Thank you! Your message has been received.");
 
     event.target.reset();
+
+    return false;
 }
