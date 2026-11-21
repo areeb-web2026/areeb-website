@@ -1,18 +1,32 @@
+ 
 console.log("Business website loaded successfully!");
+
+(function () {
+    emailjs.init({
+        publicKey: "a99IxwxWxwR5sa9vE"
+    });
+})();
 
 function showMessage() {
     alert("Welcome to Areeb Business! Thank you for visiting.");
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("Website is ready!");
-});
 function sendMessage(event) {
     event.preventDefault();
 
-    alert("Thank you! Your message has been received.");
+    const form = event.target;
 
-    event.target.reset();
+    emailjs.sendForm(
+        "service_gjqwkox",
+        "template_mtdly1b",
+        form
+    ).then(function () {
+        alert("Your message has been sent successfully!");
+        form.reset();
+    }).catch(function (error) {
+        console.log("Email error:", error);
+        alert("Message could not be sent. Please try again.");
+    });
 
     return false;
 }
