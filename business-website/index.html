@@ -51,16 +51,15 @@
     </section>
  <section class="services" id="contact">
     <h2>Contact Us</h2>
+  <form class="contact-form" onsubmit="return sendMessage(event)">
+    <input type="text" name="name" placeholder="Your Name" required>
 
-    <form class="contact-form" onsubmit="return sendMessage(event)">
-        <input type="text" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
 
-        <input type="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
 
-        <textarea placeholder="Your Message" required></textarea>
-
-        <button type="submit">Send Message</button>
-    </form>
+    <button type="submit">Send Message</button>
+</form>
 </section>
 
     <footer>
