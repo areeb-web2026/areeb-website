@@ -203,7 +203,7 @@ nav a{display:inline-block;margin:7px}
 <p>Fresh Food, Great Taste!</p>
 <p>© 2026 Golden Plate. All Rights Reserved.</p>
 </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 let cart = [];
 
@@ -268,12 +268,26 @@ return;
 }
 alert("This is a demo checkout. No real order has been placed.");
 }
+emailjs.init({
+    publicKey: "a99IxwxWxwR5sa9vE"
+});
 
-function sendMessage(event){
-event.preventDefault();
-document.getElementById("formResult").innerText=
-"Thank you! This is a demo form; your message has not been sent.";
-event.target.reset();
+function sendMessage(event) {
+    event.preventDefault();
+
+    emailjs.sendForm(
+        "service_gjqwkox",
+        "template_mtdly1b",
+        event.target
+    ).then(function () {
+        document.getElementById("formResult").innerText =
+            "Your message has been sent successfully!";
+        event.target.reset();
+    }).catch(function (error) {
+        document.getElementById("formResult").innerText =
+            "Message could not be sent. Please try again.";
+        console.log(error);
+    });
 }
 </script>
 
