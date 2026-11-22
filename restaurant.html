@@ -185,11 +185,14 @@ nav a{display:inline-block;margin:7px}
 <h2>Get In Touch</h2>
 <p class="subtitle">We would love to hear from you</p>
 <div class="contact-box">
-<form onsubmit="sendMessage(event)">
-<input type="text" id="name" placeholder="Your Name" required>
-<input type="email" id="email" placeholder="Your Email" required>
-<textarea id="message" placeholder="Your Message" required></textarea>
-<button class="btn" type="submit">Send Message</button>
+ <form onsubmit="sendMessage(event)">
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+    <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+    <button class="btn" type="submit">Send Message</button>
 </form>
 <p id="formResult"></p>
 </div>
