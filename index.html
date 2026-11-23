@@ -1,945 +1,822 @@
+ 
 <!DOCTYPE html>
-<!-- saved from url=(0059)file:///C:/Users/USER/OneDrive/Desktop/MyWebsite/index.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T24PKNJV1D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Muhammad Areeb Siddiqui - Aspiring Web Developer. Explore my web development projects, skills and portfolio.">
+<meta name="author" content="Muhammad Areeb Siddiqui">
+<meta name="theme-color" content="#080710">
+<title>Muhammad Areeb | Web Developer Portfolio</title>
 
-  gtag('config', 'G-T24PKNJV1D');
-</script>
-    <meta name="google-site-verification" content="0nUpCDP2L6J4Y56kBXWMOdmW_n8WijExWdb9gQPZlj4" />
-    <meta name="description" content="Muhammad Areeb Siddiqui's portfolio showcasing beginner web development skills, HTML, CSS, JavaScript, website design and personal projects.">
-    <title>Areeb Siddiqui | Web Developer Portfolio</title>
-     <meta name="author" content="Areeb Siddiqui">
-    <meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-    .skills-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 30px;
+:root {
+  --bg: #080710;
+  --surface: #11101d;
+  --surface2: #171528;
+  --purple: #9b72ff;
+  --purple2: #6d42e8;
+  --text: #f5f2ff;
+  --muted: #a5a0b8;
+  --border: rgba(255,255,255,.09);
 }
 
-.skill-card {
-    background: white;
-    padding: 25px;
-    width: 180px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: 0.3s;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
-.skill-card:hover {
-    transform: translateY(-8px);
-    background: #155eef;
-    color: white;
-}
+html { scroll-behavior:smooth; }
 
-.skill-card h3 {
-    font-size: 22px;
-}
-
-#services {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-#services h1 {
-    color: #155eef;
-    font-size: 32px;
-    margin-bottom: 30px;
-}
-
-#services .skill-card {
-    display: inline-block;
-    margin: 12px;
-    background: linear-gradient(135deg, #ffffff, #e8efff);
-    border: 1px solid #d5e1ff;
-    box-shadow: 0 8px 20px rgba(21, 94, 239, 0.15);
-}
-
-#services .skill-card:hover {
-    transform: translateY(-10px);
-    background: #155eef;
-    color: white;
-}
-.project-btn {
-    display: inline-block;
-    background: linear-gradient(90deg, #155eef, #6a11cb);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 15px;
-    transition: 0.3s;
-}
-
-.project-btn:hover {
-    transform: scale(1.08);
-}
 body {
-    background: linear-gradient(-45deg, #eaf2ff, #b8d4ff, #d8c5ff, #ffffff);
-background-size: 400% 400%;
-animation: gradientBG 12s ease infinite;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    min-height: 100vh;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+a { color:inherit; text-decoration:none; }
+
+.container {
+  width:min(1120px,90%);
+  margin:auto;
 }
 
 nav {
-    background: linear-gradient(90deg, #155eef, #6a11cb);
-    padding: 22px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(8,7,16,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-font-weight: bold;
-transition: 0.3s;
-    font-size: 18px;
+.nav-inner {
+  min-height:76px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
-nav a:hover {
-    color: yellow;
-text-decoration: underline;}
-
-section {
-    padding: 70px 20px;
-    animation: fadeIn 1s ease;
+.logo {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:25px;
+  font-weight:700;
 }
 
-h1 {
-    color: #155eef;
-    font-size: 40px;
-    text-shadow: 2px 2px 5px #b5caff;
+.logo span { color:var(--purple); }
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:27px;
 }
 
-button {
-    background: #155eef;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+.nav-links a {
+  color:var(--muted);
+  font-size:14px;
+  transition:.3s;
 }
 
-button:hover {
-    background: darkblue;
+.nav-links a:hover { color:var(--purple); }
+
+.menu-btn {
+  display:none;
+  border:1px solid var(--border);
+  color:white;
+  background:var(--surface);
+  padding:9px 13px;
+  border-radius:9px;
+  cursor:pointer;
 }
 
-html {
-    scroll-behavior: smooth;
+.hero {
+  min-height:660px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
 }
 
-.profile-photo {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid white;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    transition: transform 0.4s ease;
+.hero::before {
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:rgba(115,65,255,.17);
+  filter:blur(120px);
+  border-radius:50%;
+  top:40px;
+  right:-100px;
+  pointer-events:none;
 }
 
-.profile-photo:hover {
-    transform: scale(1.08);
+.hero-content {
+  position:relative;
+  z-index:1;
+  max-width:800px;
+  padding:100px 0;
 }
 
-.profile-card {
-    background: white;
-    max-width: 400px;
-    margin: auto;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    transition: 0.4s;
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid rgba(155,114,255,.3);
+  background:rgba(155,114,255,.08);
+  color:#c7afff;
+  padding:8px 15px;
+  border-radius:30px;
+  font-size:13px;
+  margin-bottom:25px;
 }
 
-.profile-card:hover {
-    transform: translateY(-10px);
+.dot {
+  height:8px;
+  width:8px;
+  background:#73e6a4;
+  border-radius:50%;
+  box-shadow:0 0 12px #73e6a4;
 }
 
-.whatsapp-btn {
-    display: inline-block;
-    background: #25D366;
-    color: white;
-    padding: 15px 25px;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 18px;
-    font-weight: bold;
-}
-.whatsapp-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    color: white;
-    padding: 16px 30px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-    transition: 0.3s ease;
+.hero h1 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(45px,8vw,83px);
+  line-height:1.08;
+  letter-spacing:-3px;
+  margin-bottom:18px;
 }
 
-.whatsapp-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
-}
-.whatsapp-btn:hover {
-    background: #128C7E;
-}
-
-form {
-    background: white;
-    max-width: 400px;
-    margin: 30px auto;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-}
-input, textarea {
-    box-sizing: border-box;
-    width: 90%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: Arial;
+.gradient-text {
+  background:linear-gradient(90deg,#c4a9ff,#8b63ff,#e1c5ff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
-textarea {
-    resize: vertical;
+.hero h2 {
+  font-size:clamp(20px,3vw,29px);
+  color:#c8c2dc;
+  font-weight:500;
+  margin-bottom:20px;
 }
 
-form button {
-    background: linear-gradient(90deg, #155eef, #6a11cb);
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: bold;
-    transition: 0.3s;
+.hero p {
+  color:var(--muted);
+  max-width:610px;
+  font-size:17px;
+  margin-bottom:30px;
 }
 
-form button:hover {
-    transform: scale(1.05);
-    background: #128C7E;
-}
-.dark-mode {
-    background: #121212 !important;
-    color: white !important;
+.buttons {
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
 }
 
-.dark-mode nav,
-.dark-mode section,
-.dark-mode .skill-card,
-.dark-mode .profile-card,
-.dark-mode form {
-    background: #222 !important;
-    color: white !important;
-}
-    @media (max-width: 600px) {
-    nav {
-        padding: 12px 5px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav a {
-        margin: 6px;
-        font-size: 13px;
-    }
-
-    h1 {
-        font-size: 26px;
-    }
-
-    section {
-        padding: 35px 12px;
-    }
-
-    .skills-container {
-        gap: 12px;
-    }
-
-    .skill-card {
-        width: 85%;
-        max-width: 280px;
-        margin: 10px auto;
-    }
-
-    .whatsapp-btn {
-        font-size: 15px;
-        padding: 12px 18px;
-    }
-
-    .site-footer {
-        padding: 20px 10px;
-    }
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 23px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14px;
+  transition:.3s;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-        to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.btn-primary {
+  color:white;
+  background:linear-gradient(110deg,var(--purple2),#a36dff);
+  box-shadow:0 8px 30px rgba(125,76,255,.23);
 }
 
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-        100% {
-        background-position: 0% 50%;
-    }
+.btn-outline {
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.03);
 }
 
-@media (max-width: 600px) {
-    nav {
-        padding: 15px 5px;
-    }
+.btn:hover { transform:translateY(-4px); }
 
-    nav a {
-        display: inline-block;
-        margin: 8px;
-        font-size: 15px;
-    }
+section { padding:95px 0; }
 
-    .skill-card {
-        width: 80%;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-}#loader {
-    position: fixed;
-    inset: 0;
-    background: #121212;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+.section-heading {
+  margin-bottom:42px;
 }
 
-.loading-circle {
-    width: 45px;
-    height: 45px;
-    border: 5px solid #444;
-    border-top: 5px solid #155eef;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+.section-heading .small {
+  color:var(--purple);
+  font-size:13px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:3px;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}#topBtn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: linear-gradient(90deg, #155eef, #6a11cb);
-    color: white;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 30px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 1000;
-}#contact form {
-    max-width: 450px;
-    margin: 30px auto;
-    padding: 25px;
-    background: #1e293b;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+.section-heading h2 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(32px,5vw,48px);
+  line-height:1.2;
+  margin-top:10px;
 }
 
-#contact input,
-#contact textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #555;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 16px;
-    margin-bottom: 10px;
+.section-heading p {
+  color:var(--muted);
+  margin-top:12px;
+  max-width:600px;
 }
 
-#contact form button {
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(90deg, #155eef, #6a11cb);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-}@media (max-width: 600px) {
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    .skills-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .skill-card {
-        width: 80%;
-    }
-#contact form {
-    width: 90%;
-    box-sizing: border-box;
-}
+.about-grid {
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:45px;
+  align-items:center;
 }
 
-body.dark-mode {
-    background: #121212 !important;
-    color: white !important;
+.profile-box {
+  background:linear-gradient(145deg,#21183b,#11101d);
+  border:1px solid var(--border);
+  padding:18px;
+  border-radius:22px;
+  text-align:center;
 }
 
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode p {
-    color: white !important;
+.profile-box img {
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:15px;
 }
 
-body.dark-mode .profile-card {
-    background: #222 !important;
-    color: white !important;
-}
-    .site-footer {
-    background: #111827;
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
-    margin-top: 40px;
-    border-top: 3px solid #155eef;
+.profile-box h3 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:23px;
+  margin-top:16px;
 }
 
-.site-footer p {
-    margin: 8px 0;
-    font-size: 14px;
-}
-    .progress-bar {
-    width: 100%;
-    height: 12px;
-    background: #ddd;
-    border-radius: 20px;
-    margin: 15px 0;
-    overflow: hidden;
+.profile-box p { color:var(--muted); }
+
+.about-text p {
+  color:var(--muted);
+  margin-bottom:17px;
 }
 
-.progress {
-    height: 100%;
-    border-radius: 20px;
-    background: #155eef;
+.info-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:13px;
+  margin-top:25px;
 }
 
-.html-progress {
-    width: 60%;
+.info {
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--surface);
 }
 
-.css-progress {
-    width: 45%;
+.info strong {
+  display:block;
+  color:var(--purple);
+  font-size:13px;
+  margin-bottom:5px;
 }
 
-.js-progress {
-    width: 25%;
+.info span { font-size:14px; }
+
+.skills-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
-.design-progress {
-    width: 40%;
-}
-    html {
-    scroll-behavior: smooth;
-}
-    button:hover,
-.project-btn:hover,
-.whatsapp-btn:hover {
-    opacity: 0.8;
-    transform: translateY(-3px);
-    transition: 0.3s;
-}
-    .skill-bar {
-    width: 100%;
-    height: 10px;
-    background: #ddd;
-    border-radius: 10px;
-    margin: 15px 0;
-    overflow: hidden;
+.card {
+  background:linear-gradient(145deg,var(--surface2),var(--surface));
+  border:1px solid var(--border);
+  padding:25px;
+  border-radius:17px;
+  transition:.3s;
 }
 
-.skill-progress {
-    height: 100%;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #d4af37, #f5d76e);
+.card:hover {
+  transform:translateY(-6px);
+  border-color:rgba(155,114,255,.5);
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
 }
 
-.html-progress {
-    width: 30%;
+.skill-icon {
+  font-size:30px;
+  margin-bottom:12px;
 }
 
-.css-progress {
-    width: 20%;
+.card h3 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:20px;
+  margin-bottom:8px;
 }
 
-.js-progress {
-    width: 10%;
+.card p {
+  color:var(--muted);
+  font-size:14px;
 }
 
-.design-progress {
-    width: 20%;
+.skill-tag {
+  display:inline-block;
+  padding:7px 12px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:#d7c8ff;
+  border-radius:8px;
+  margin:5px 5px 0 0;
+  font-size:13px;
+}
+
+.projects-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:23px;
+}
+
+.project-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.project-card:hover {
+  transform:translateY(-6px);
+  border-color:var(--purple);
+}
+
+.project-card img {
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  display:block;
+}
+
+.project-info { padding:23px; }
+
+.project-info h3 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:22px;
+  margin-bottom:9px;
+}
+
+.project-info p {
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+.project-links {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.project-links a {
+  color:#c6adff;
+  border:1px solid rgba(155,114,255,.3);
+  padding:8px 12px;
+  border-radius:8px;
+  font-size:13px;
+  transition:.3s;
+}
+
+.project-links a:hover {
+  background:var(--purple2);
+  color:white;
+}
+
+.experience-box {
+  border-left:3px solid var(--purple);
+  background:var(--surface);
+  padding:25px;
+  border-radius:0 15px 15px 0;
+  max-width:750px;
+}
+
+.experience-box h3 { font-size:22px; }
+
+.experience-box .date {
+  color:var(--purple);
+  font-size:14px;
+  margin:5px 0 13px;
+}
+
+.experience-box p {
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+.contact-box {
+  text-align:center;
+  padding:55px 25px;
+  border:1px solid rgba(155,114,255,.25);
+  border-radius:23px;
+  background:
+    radial-gradient(ellipse at top,rgba(121,75,255,.19),transparent 65%),
+    var(--surface);
+}
+
+.contact-box h2 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(30px,5vw,46px);
+  margin-bottom:13px;
+}
+
+.contact-box p {
+  color:var(--muted);
+  max-width:560px;
+  margin:0 auto 25px;
+}
+
+.contact-email {
+  display:block;
+  color:#c9b2ff;
+  margin-bottom:25px;
+  overflow-wrap:anywhere;
+}
+
+footer {
+  padding:28px 0;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  text-align:center;
+  font-size:13px;
+}
+
+footer strong { color:white; }
+
+.reveal {
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+
+.reveal.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:800px) {
+  .menu-btn { display:block; }
+
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:76px;
+    left:0;
+    width:100%;
+    padding:20px 5%;
+    background:#100e1c;
+    border-bottom:1px solid var(--border);
+    flex-direction:column;
+    align-items:flex-start;
+    gap:17px;
+  }
+
+  .nav-links.open { display:flex; }
+
+  .about-grid { grid-template-columns:1fr; }
+
+  .profile-box { max-width:330px; margin:auto; }
+
+  .skills-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:600px) {
+  section { padding:70px 0; }
+
+  .hero { min-height:580px; }
+
+  .hero-content { padding:75px 0; }
+
+  .hero h1 { letter-spacing:-2px; }
+
+  .projects-grid,
+  .skills-grid,
+  .info-grid { grid-template-columns:1fr; }
+
+  .project-card img { height:200px; }
+
+  .buttons .btn { width:100%; }
+
+  .contact-box { padding:40px 18px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto !important;
+    transition:none !important;
+  }
+  .reveal { opacity:1; transform:none; }
 }
 </style>
 </head>
-<body>
-    <div id="loader">
-    <h1>Areeb's Website</h1>
-    <p>Loading...</p>
-    <div class="loading-circle"></div>
-</div>
- 
-<nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#services">Services</a>
-    <a href="#why-choose-me">Why Choose Me</a>
-    <a href="#faq">FAQ</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact">Contact</a>
 
-    <button onclick="toggleDarkMode()" id="darkBtn">
-        ☀️ Light Mode
-    </button>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">Areeb<span>.</span></a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </nav>
 
-    
-<section id="home">
-    <h1>Hi, I'm Areeb!</h1>
+<main>
 
-    <h2>Aspiring Web Developer</h2>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content reveal">
+      <div class="eyebrow"><span class="dot"></span> Learning • Building • Improving</div>
 
-    <p style="color: green; font-weight: bold; font-size: 18px;">
-        🟢 Available for Opportunities
-    </p>
+      <h1>Hi, I'm <span class="gradient-text">Muhammad Areeb.</span></h1>
 
-    <p>
-        I create simple and creative websites using HTML, CSS and JavaScript.
-    </p>
+      <h2>Aspiring Web Developer</h2>
 
-    <p>
-        I also have 3 years of experience in CNC and Lathe Machine Operation.
-    </p>
+      <p>
+        I build creative and responsive websites using HTML, CSS and JavaScript.
+        I'm continuously learning, creating projects and improving my skills
+        to turn ideas into useful digital experiences.
+      </p>
 
-    <h3><span id="typing"></span></h3>
-
-    <a href="#projects" class="project-btn">View My Work</a>
-
-    <a href="#contact" class="whatsapp-btn">Contact Me</a>
-    <br><br>
-
-<a href="Muhammad_Areeb_Siddiqui_CV%20(1).pdf"
-   class="project-btn" download>
-   Download My CV
-</a>
+      <div class="buttons">
+        <a href="#projects" class="btn btn-primary">Explore My Projects ↗</a>
+        <a href="#contact" class="btn btn-outline">Let's Connect</a>
+        <a href="Muhammad_Areeb_Siddiqui_CV%20(1).pdf" class="btn btn-outline" target="_blank">View My CV ↓</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="about">
-    <div class="profile-card">
-        <img src="areeb.jpg" alt="Areeb Profile Photo" class="profile-photo">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="small">Get to know me</span>
+      <h2>About Me<span class="gradient-text">.</span></h2>
+      <p>A little about my journey, background and what I'm learning.</p>
+    </div>
 
-        <h2>Hello, I'm Areeb!</h2>
+    <div class="about-grid">
+      <div class="profile-box reveal">
+        <img src="areeb.jpg" alt="Muhammad Areeb Siddiqui">
+        <h3>Muhammad Areeb</h3>
         <p>Aspiring Web Developer</p>
+      </div>
 
-        <p>I am learning HTML, CSS and JavaScript to build modern websites.</p>
+      <div class="about-text reveal">
+        <p>
+          I'm an aspiring web developer from Karachi, Pakistan.
+          I enjoy creating simple, creative and user-friendly websites.
+        </p>
 
-        <button onclick="alert('Welcome to my website!')">
-            Say Hello
-        </button>
+        <p>
+          I'm currently learning HTML, CSS and JavaScript and building
+          demo projects to strengthen my practical skills.
+        </p>
+
+        <p>
+          Before starting my web development journey, I gained three years
+          of practical experience in CNC and lathe machine operation.
+          This helped me develop discipline, attention to detail and
+          problem-solving skills.
+        </p>
+
+        <div class="info-grid">
+          <div class="info">
+            <strong>LOCATION</strong>
+            <span>Karachi, Pakistan</span>
+          </div>
+          <div class="info">
+            <strong>FOCUS</strong>
+            <span>Frontend Web Development</span>
+          </div>
+          <div class="info">
+            <strong>TECHNOLOGIES</strong>
+            <span>HTML, CSS, JavaScript</span>
+          </div>
+          <div class="info">
+            <strong>STATUS</strong>
+            <span>Learning & Building Projects</span>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <h1>About Me</h1>
-
-    <p>
-        I am an aspiring Web Developer who enjoys creating simple,
-        creative and user-friendly websites.
-    </p>
-
-    <h2>My Previous Experience</h2>
-
-    <p>
-        I have 3 years of experience in CNC Machine and Lathe Operation.
-        This experience helped me develop practical skills,
-        discipline and attention to detail.
-    </p>
-
-    <h2>My Current Learning Journey</h2>
-
-    <p>
-        I am currently learning HTML, CSS and JavaScript
-        and building demo projects to improve my web development skills.
-    </p>
+  </div>
 </section>
-<section id="experience">
-    <h1>My Work Experience</h1>
 
-    <div class="skill-card">
-        <h3>CNC Auto Lathe Machine Operator</h3>
-        <h4>Hussein Engineering Works Limited</h4>
-        <p>2023 – 2026 (3 Years Experience)</p>
-        <p>Experience in CNC Auto Lathe machine operation, turning, facing, boring and threading.</p>
-        <p>Used Vernier Caliper and Micrometer for checking measurements.</p>
-    </div>
-</section>
-    <section id="cv">
-        
-    <h1>My Resume</h1>
-    <p>Download my CV to know about my experience and skills.</p>
-
-    <a href="Muhammad_Areeb_Siddiqui_CV (1).pdf"
-       class="project-btn"
-       download>
-       Download My CV
-    </a>
-        <br><br>
-
-<a href="https://wa.me/92370030353"
-   class="project-btn"
-   target="_blank">
-   Hire Me
-</a>
-</section>
-    
 <section id="skills">
-    <h1>My Skills</h1>
-<div class="skill-card">
-    <h3>HTML</h3>
-    <p>Website Structure</p>
-    <div class="skill-bar">
-        <div class="skill-progress html-progress"></div>
-    </div>
-    <p>Currently Learning</p>
-</div>
-<div class="skill-card">
-    <h3>CSS</h3>
-    <p>Website Design</p>
-    <div class="skill-bar">
-        <div class="skill-progress css-progress"></div>
-    </div>
-    <p>Currently Learning</p>
-</div>
- <div class="skill-card">
-    <h3>JavaScript</h3>
-    <p>Website Functionality</p>
-    <div class="skill-bar">
-        <div class="skill-progress js-progress"></div>
-    </div>
-    <p>Currently Learning</p>
-</div>
-<div class="skill-card">
-    <h3>Web Design</h3>
-    <p>Creative Websites</p>
-    <div class="skill-bar">
-        <div class="skill-progress design-progress"></div>
-    </div>
-    <p>Currently Learning</p>
-</div>
-    <h2>Previous Technical Skills</h2>
-
-    <div class="skills-container">
-
-        <div class="skill-card">
-            <h3>CNC Machine Operation</h3>
-            <p>3 Years Experience</p>
-        </div>
-
-        <div class="skill-card">
-            <h3>Lathe Machine Operation</h3>
-            <p>3 Years Experience</p>
-        </div>
-
-        <div class="skill-card">
-            <h3>Workshop Experience</h3>
-            <p>Practical Industrial Experience</p>
-        </div>
-
-    </div>
-</section>
-<section id="services">
-    <h1>My Services</h1>
-    <p>I'm learning web development and building practice projects.</p>
-
-    <div class="skills-container">
-
-        <div class="skill-card">
-            <h3>🌐 HTML Development</h3>
-            <p>Creating website structure and content.</p>
-        </div>
-
-        <div class="skill-card">
-            <h3>🎨 CSS Design</h3>
-            <p>Adding colours, layouts and styling.</p>
-        </div>
-
-        <div class="skill-card">
-            <h3>📱 Responsive Design</h3>
-            <p>Learning to make websites work on mobile and desktop.</p>
-        </div>
-
-    </div>
-</section>
-<section id="why-choose-me">
-    <h1>Why Choose Me?</h1>
-
-    <div class="skill-card">
-        <h2>🎯 Simple Design</h2>
-        <p>Clean and easy-to-use website layouts.</p>
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="small">What I'm learning</span>
+      <h2>My Skills<span class="gradient-text">.</span></h2>
+      <p>Technologies and practical skills I'm developing.</p>
     </div>
 
-    <div class="skill-card">
-        <h2>📱 Mobile Friendly</h2>
-        <p>Websites designed for mobile and desktop.</p>
+    <div class="skills-grid">
+      <div class="card reveal">
+        <div class="skill-icon">🌐</div>
+        <h3>HTML5</h3>
+        <p>Creating structured and accessible web pages.</p>
+      </div>
+
+      <div class="card reveal">
+        <div class="skill-icon">🎨</div>
+        <h3>CSS3</h3>
+        <p>Styling layouts, colours, responsive designs and animations.</p>
+      </div>
+
+      <div class="card reveal">
+        <div class="skill-icon">⚡</div>
+        <h3>JavaScript</h3>
+        <p>Learning to add interactivity and functionality to websites.</p>
+      </div>
     </div>
 
-    <div class="skill-card">
-        <h2>🤝 Honest Communication</h2>
-        <p>Clear communication and regular updates.</p>
+    <div style="margin-top:30px" class="reveal">
+      <h3 style="margin-bottom:14px">Tools & Technologies</h3>
+      <span class="skill-tag">VS Code</span>
+      <span class="skill-tag">GitHub</span>
+      <span class="skill-tag">Git</span>
+      <span class="skill-tag">Responsive Design</span>
     </div>
-
-    <div class="skill-card">
-        <h2>📚 Always Learning</h2>
-        <p>Improving my web development skills every day.</p>
-    </div>
+  </div>
 </section>
 
- 
 <section id="projects">
-    <h1>My Projects & Work</h1>
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="small">Things I've created</span>
+      <h2>My Projects<span class="gradient-text">.</span></h2>
+      <p>A selection of my practice projects and website demos.</p>
+    </div>
 
-    <div class="skills-container">
+    <div class="projects-grid">
 
-        <div class="skill-card">
-            <img src="areeb.jpg" alt="Personal Portfolio Preview"
-style="width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
-            <h3>🌐 Personal Portfolio</h3>
-            <p>My personal portfolio built using HTML, CSS and JavaScript.</p>
-
-            <a href="https://areeb-web2026.github.io/areeb-website/"
-               target="_blank" class="project-btn">Live Demo</a>
-
-            <br><br>
-
-            <a href="https://github.com/areeb-web2026/areeb-website/blob/main/index.html"
-               target="_blank" class="project-btn">View Source Code</a>
+      <article class="project-card reveal">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85" alt="Business website preview">
+        <div class="project-info">
+          <h3>Business Website</h3>
+          <p>A sample business website designed to present services and business information.</p>
+          <div class="project-links">
+            <a href="https://areeb-web2026.github.io/areeb-website/business-website/" target="_blank" rel="noopener">Live Demo ↗</a>
+            <a href="https://github.com/areeb-web2026/areeb-website/tree/main/business-website" target="_blank" rel="noopener">Source Code ↗</a>
+          </div>
         </div>
+      </article>
 
-        <div class="skill-card">
-            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80"
-alt="Business Website Preview"
-style="width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
-            <h3>🏢 Business Website</h3>
-            <p>A sample business website with a clean and professional design.</p>
-
-            <a href="https://areeb-web2026.github.io/areeb-website/business.html"
-               target="_blank" class="project-btn">Live Demo</a>
-
-            <br><br>
-
-            <a href="https://github.com/areeb-web2026/areeb-website/blob/main/business.html"
-               target="_blank" class="project-btn">View Source Code</a>
+      <article class="project-card reveal">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85" alt="Restaurant website preview">
+        <div class="project-info">
+          <h3>Restaurant Website</h3>
+          <p>A restaurant demo featuring a food menu, cart demonstration and contact form.</p>
+          <div class="project-links">
+            <a href="https://areeb-web2026.github.io/areeb-website/restaurant.html" target="_blank" rel="noopener">Live Demo ↗</a>
+            <a href="https://github.com/areeb-web2026/areeb-website/blob/main/restaurant.html" target="_blank" rel="noopener">Source Code ↗</a>
+          </div>
         </div>
+      </article>
 
-        <div class="skill-card">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
-alt="Restaurant Website Preview"
-style="width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
-            <h3>🍽️ Restaurant Website</h3>
-            <p>A restaurant demo featuring a food menu, shopping cart and demo checkout.</p>
-
-            <a href="https://areeb-web2026.github.io/areeb-website/restaurant.html"
-               target="_blank" class="project-btn">Live Demo</a>
-
-            <br><br>
-
-            <a href="https://github.com/areeb-web2026/areeb-website/blob/main/restaurant.html"
-               target="_blank" class="project-btn">View Source Code</a>
+      <article class="project-card reveal">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85" alt="Real estate website preview">
+        <div class="project-info">
+          <h3>Real Estate Website</h3>
+          <p>A real estate demo presenting property listings and property details.</p>
+          <div class="project-links">
+            <a href="https://areeb-web2026.github.io/areeb-website/realestate.html" target="_blank" rel="noopener">Live Demo ↗</a>
+            <a href="https://github.com/areeb-web2026/areeb-website/blob/main/realestate.html" target="_blank" rel="noopener">Source Code ↗</a>
+          </div>
         </div>
+      </article>
 
-        <div class="skill-card">
-            <div class="skill-card">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
-    alt="Prime Estate Website Preview"
-    style="width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
-
-    <h3>🏡 Prime Estate Website</h3>
-    <p>A real estate demo website featuring property listings and details.</p>
-
-    <a href="https://areeb-web2026.github.io/areeb-website/realestate.html"
-    target="_blank" class="project-btn">Live Demo</a>
-
-    <br><br>
-
-    <a href="https://github.com/areeb-web2026/areeb-website/blob/main/realestate.html"
-    target="_blank" class="project-btn">View Source Code</a>
-</div>
-            
-<div class="skill-card">
-    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80"
-    alt="Bakery Website Preview"
-    style="width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
-
-    <h3>🍰 Bakery Website</h3>
-    <p>A responsive bakery demo website showcasing cakes, cookies and bakery products.</p>
-
-    <a href="https://areeb-web2026.github.io/areeb-website/bakery.html"
-    target="_blank" class="project-btn">Live Demo</a>
-
-    <br><br>
-
-    <a href="https://github.com/areeb-web2026/areeb-website/blob/main/bakery.html"
-    target="_blank" class="project-btn">View Source Code</a>
-</div>
-
-            <h3>⚙️ CNC & Lathe Experience</h3>
-            <p>3 years of practical experience in CNC and Lathe Machine Operation.</p>
-            <a href="#experience" class="project-btn">View Experience</a>
+      <article class="project-card reveal">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85" alt="Bakery website preview">
+        <div class="project-info">
+          <h3>Bakery Website</h3>
+          <p>A bakery website demo showcasing bakery products and business information.</p>
+          <div class="project-links">
+            <a href="https://areeb-web2026.github.io/areeb-website/bakery.html" target="_blank" rel="noopener">Live Demo ↗</a>
+            <a href="https://github.com/areeb-web2026/areeb-website/blob/main/bakery.html" target="_blank" rel="noopener">Source Code ↗</a>
+          </div>
         </div>
+      </article>
+
+      <article class="project-card reveal">
+        <img src="areeb.jpg" alt="Personal portfolio preview">
+        <div class="project-info">
+          <h3>Personal Portfolio</h3>
+          <p>My personal portfolio showcasing my learning journey, skills and projects.</p>
+          <div class="project-links">
+            <a href="https://areeb-web2026.github.io/areeb-website/" target="_blank" rel="noopener">Live Demo ↗</a>
+            <a href="https://github.com/areeb-web2026/areeb-website" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </article>
 
     </div>
+  </div>
 </section>
-    <section id="reviews">
-    <h1>Feedback & Collaboration</h1>
 
-    <div class="skills-container">
-
-        <div class="skill-card">
-            <h3>⭐ Your Feedback</h3>
-            <p>Client feedback will be displayed here after completing real projects.</p>
-        </div>
-
-        <div class="skill-card">
-            <h3>🤝 Work With Me</h3>
-            <p>I look forward to creating useful websites for clients.</p>
-        </div>
-
+<section id="experience">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="small">My professional background</span>
+      <h2>Work Experience<span class="gradient-text">.</span></h2>
     </div>
+
+    <div class="experience-box reveal">
+      <h3>CNC Auto Lathe Machine Operator</h3>
+      <div class="date">Hussein Engineering Works Limited · 2023–2026</div>
+      <p>Three years of practical experience in CNC Auto Lathe machine operation.</p>
+      <p>• Turning, facing, boring and threading operations.</p>
+      <p>• Measurement checking using Vernier Caliper and Micrometer.</p>
+      <p>• Practical workshop experience and attention to detail.</p>
+    </div>
+  </div>
 </section>
- 
-     
-<section id="faq">
-    <h1>Frequently Asked Questions</h1>
 
-    <div class="skill-card">
-        <details>
-            <summary>What type of websites can you create?</summary>
-            <p>I can create simple portfolio and business websites.</p>
-        </details>
-    </div>
+<section id="contact">
+  <div class="container">
+    <div class="contact-box reveal">
+      <span class="small">Have an idea?</span>
+      <h2>Let's Build Something <span class="gradient-text">Together.</span></h2>
+      <p>
+        I'm open to learning opportunities, meaningful collaborations
+        and suitable beginner-level web projects. Feel free to contact me.
+      </p>
 
-    <div class="skill-card">
-        <details>
-            <summary>Are your websites mobile friendly?</summary>
-            <p>Yes, I am learning to make websites responsive.</p>
-        </details>
-    </div>
+      <a class="contact-email" href="mailto:areebsiddiqui177@gmail.com">
+        areebsiddiqui177@gmail.com
+      </a>
 
-    <div class="skill-card">
-        <details>
-            <summary>Can I see your previous work?</summary>
-            <p>Yes, you can explore my demo projects on this website.</p>
-        </details>
+      <div class="buttons" style="justify-content:center">
+        <a class="btn btn-primary" href="mailto:areebsiddiqui177@gmail.com">Email Me ↗</a>
+        <a class="btn btn-outline" href="https://github.com/areeb-web2026" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
     </div>
+  </div>
 </section>
-    <section id="contact">
-    <h1>Contact Me</h1>
-    <p>Have a website idea? Let's discuss it!</p>
 
-    <div class="skill-card">
-        <h3>Get In Touch</h3>
-        <p>I am available for learning opportunities and suitable web projects.</p>
-        <p>Want to discuss a website project?</p>
-<a href="https://mail.google.com/mail/?view=cm&fs=1&to=areebsiddiqui177@gmail.com" target="_blank" class="project-btn">Email Me</a>
-    </div>
-</section>
-        <footer class="site-footer">
-    <h3>Areeb | Aspiring Web Developer</h3>
-    <p>Building simple and creative websites with HTML, CSS and JavaScript.</p>
-    <p>© 2026 Areeb Siddiqui. All Rights Reserved.</p>
+</main>
+
+<footer>
+  <div class="container">
+    <p><strong>Muhammad Areeb Siddiqui</strong> · Aspiring Web Developer</p>
+    <p>Designed and built with HTML, CSS and JavaScript.</p>
+    <p>© <span id="year"></span> Areeb. All rights reserved.</p>
+  </div>
 </footer>
+
 <script>
-const words = [
-    "Future Web Developer",
-    "HTML & CSS Learner",
-    "Creative Website Designer"
-];
- function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
 
-    const btn = document.getElementById("darkBtn");
+menuBtn.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", isOpen);
+  menuBtn.textContent = isOpen ? "✕" : "☰";
+});
 
-    if (document.body.classList.contains("dark-mode")) {
-        btn.innerHTML = "☀️ Light Mode";
-    } else {
-        btn.innerHTML = "🌙 Dark Mode";
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+  });
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
     }
-}
-let wordIndex = 0;
-let charIndex = 0;
-function typeEffect() {
-    const typing = document.getElementById("typing");
+  });
+}, { threshold: 0.12 });
 
-    typing.textContent = words[wordIndex].substring(0, charIndex);
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
 
-    if (charIndex < words[wordIndex].length) {
-        charIndex++;
-        setTimeout(typeEffect, 100);
-    } else {
-        setTimeout(function() {
-            charIndex = 0;
-            wordIndex = (wordIndex + 1) % words.length;
-            typeEffect();
-        }, 1000);
-    }
-}
-typeEffect();
-    setTimeout(function() {
-    document.getElementById("loader").style.display = "none";
-}, 2000);
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-    id="topBtn">
-</button>
-</body></html>
+
+</body>
+</html>
