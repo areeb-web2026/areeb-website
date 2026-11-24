@@ -895,5 +895,40 @@ document.getElementById("year").textContent = new Date().getFullYear();
     transform: translateY(-4px);
 }
 </style>
+ <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑
+</button>
+
+<style>
+#scrollTopBtn {
+    position: fixed;
+    right: 25px;
+    bottom: 85px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: #9b72ff;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+    z-index: 9999;
+    box-shadow: 0 5px 15px rgba(0,0,0,.3);
+}
+
+#scrollTopBtn:hover {
+    background: #6d42e8;
+}
+</style>
+
+<script>
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", function() {
+    scrollTopBtn.style.display =
+        window.scrollY > 300 ? "block" : "none";
+});
+</script>
 </body>
 </html>
