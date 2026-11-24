@@ -555,6 +555,9 @@ footer strong { color:white; }
 <nav>
   <div class="container nav-inner">
     <a href="#home" class="logo">Areeb<span>.</span></a>
+   <button id="themeToggle" class="menu-btn" aria-label="Change theme">
+    ☀️
+</button>
 
     <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
 
@@ -900,6 +903,26 @@ document.getElementById("year").textContent = new Date().getFullYear();
 </button>
 
 <style>
+ body.light-mode {
+    --bg: #f5f3ff;
+    --surface: #ffffff;
+    --surface2: #eee9ff;
+    --text: #171528;
+    --muted: #625d70;
+    --border: rgba(0,0,0,.12);
+}
+
+body.light-mode nav {
+    background: rgba(245,243,255,.92);
+}
+
+body.light-mode .nav-links {
+    background: #f5f3ff;
+}
+
+body.light-mode .menu-btn {
+    color: #171528;
+}
 #scrollTopBtn {
     position: fixed;
     right: 25px;
@@ -929,6 +952,17 @@ window.addEventListener("scroll", function() {
     scrollTopBtn.style.display =
         window.scrollY > 300 ? "block" : "none";
 });
+ <script>
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", function() {
+    document.body.classList.toggle("light-mode");
+
+    const isLight = document.body.classList.contains("light-mode");
+
+    themeToggle.textContent = isLight ? "🌙" : "☀️";
+});
 </script>
+
 </body>
 </html>
