@@ -674,5 +674,33 @@ updateThemeButton();
     ↑
 </button>
  
+<script>
+function searchProperties() {
+    const location = document.getElementById("searchLocation").value.toLowerCase().trim();
+    const type = document.getElementById("propertyType").value.toLowerCase();
+
+    const properties = document.querySelectorAll(".property-card");
+    let found = 0;
+
+    properties.forEach(property => {
+        const text = property.innerText.toLowerCase();
+
+        const locationMatch = !location || text.includes(location);
+        const typeMatch = !type || text.includes(type);
+
+        if (locationMatch && typeMatch) {
+            property.style.display = "block";
+            found++;
+        } else {
+            property.style.display = "none";
+        }
+    });
+
+    if (found === 0) {
+        alert("No matching properties found!");
+    }
+}
+</script>
+
 </body>
 </html>
