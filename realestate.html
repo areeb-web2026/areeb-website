@@ -702,5 +702,37 @@ function searchProperties() {
 }
 </script>
 
+<div id="propertyModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center; padding:20px;">
+
+  <div style="background:white; color:#222; padding:25px; border-radius:12px; max-width:450px; width:100%; position:relative;">
+
+    <button onclick="closeDetails()" style="position:absolute; right:12px; top:10px;">✖</button>
+
+    <img id="detailImage" src="" style="width:100%; border-radius:10px;">
+
+    <h2 id="detailName"></h2>
+    <p id="detailLocation"></p>
+    <p id="detailRooms"></p>
+    <h3 id="detailPrice"></h3>
+
+  </div>
+</div>
+
+<script>
+function showDetails(name, location, price, rooms, image) {
+  document.getElementById("detailName").textContent = name;
+  document.getElementById("detailLocation").textContent = location;
+  document.getElementById("detailPrice").textContent = price;
+  document.getElementById("detailRooms").textContent = rooms;
+  document.getElementById("detailImage").src = image;
+
+  document.getElementById("propertyModal").style.display = "flex";
+}
+
+function closeDetails() {
+  document.getElementById("propertyModal").style.display = "none";
+}
+</script>
+
 </body>
 </html>
