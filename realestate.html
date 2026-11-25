@@ -719,12 +719,17 @@ function searchProperties() {
 </div>
 
 <script>
+ 
 function showDetails(name, location, price, rooms, image) {
-  document.getElementById("detailName").textContent = name;
-  document.getElementById("detailLocation").textContent = location;
-  document.getElementById("detailPrice").textContent = price;
-  document.getElementById("detailRooms").textContent = rooms;
-  document.getElementById("detailImage").src = image;
+  document.getElementById("modalTitle").textContent = name;
+  document.getElementById("modalLocation").textContent = location;
+  document.getElementById("modalPrice").textContent = price;
+  document.getElementById("modalRooms").textContent = rooms;
+
+  const propertyImage = document.getElementById("modalImage");
+  if (propertyImage) {
+    propertyImage.src = image;
+  }
 
   document.getElementById("propertyModal").style.display = "flex";
 }
@@ -732,6 +737,7 @@ function showDetails(name, location, price, rooms, image) {
 function closeDetails() {
   document.getElementById("propertyModal").style.display = "none";
 }
+
 </script>
 
 </body>
